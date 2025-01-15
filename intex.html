@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Commands Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f3f4f6, #e5e7eb);
+            color: #333;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            background: #1f2937;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            background: #111827;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #f9fafb;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        section {
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        h2 {
+            color: #1f2937;
+            border-bottom: 2px solid #38bdf8;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        pre {
+            background: #f3f4f6;
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #e5e7eb;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #1f2937;
+            color: #f9fafb;
+            font-size: 0.9rem;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        a.smooth-scroll {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .theme-toggle {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: #38bdf8;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+        background: #0ea5e9;
+    }
+
+    .dark-mode {
+        background: #111827;
+        color: #f9fafb;
+    }
+
+    .dark-mode header {
+        background: #0f172a;
+    }
+
+    .dark-mode nav {
+        background: #1e293b;
+    }
+
+    .dark-mode section {
+        background: #1e293b;
+        color: #f9fafb;
+    }
+
+    .dark-mode footer {
+        background: #0f172a;
+    }
+
+    .dark-mode pre {
+        background: #374151;
+        border-color: #4b5563;
+    }
+
+    .dark-mode img {
+        border: 1px solid #4b5563;
+    }
+
+    /* Specific fix for h2 heading visibility */
+    .dark-mode h2 {
+        color: #38bdf8;
+    }
+
+</style>
+</head>
+<body>
+
+<header class="fade-in">
+    <h1>Linux Commands Guide</h1>
+    <p>Your comprehensive guide to essential Linux commands for networking and connectivity.</p>
+</header>
+
+<button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+<!-- Introduction Section -->
+<section class="intro fade-in">
+    <h2>Introduction</h2>
+    <p>Welcome to the Linux Commands Guide! This resource is designed to help beginners and advanced users alike navigate the world of Linux command-line tools. Whether you're looking to manage system processes, configure networks, or transfer files securely, this guide covers the most essential commands to improve your workflow and increase productivity.</p>
+    <p>Each command is explained with examples, along with screenshots to help you visualize the output and use cases. Explore the different sections below to learn more about key Linux commands.</p>
+</section>
+
+<!-- Navigation Menu -->
+<nav class="fade-in">
+    <ul>
+        <li><a href="#top" class="smooth-scroll">top</a></li>
+        <li><a href="#kill" class="smooth-scroll">kill</a></li>
+        <li><a href="#ifconfig" class="smooth-scroll">ifconfig</a></li>
+        <li><a href="#ping" class="smooth-scroll">ping</a></li>
+        <li><a href="#ssh" class="smooth-scroll">ssh</a></li>
+        <li><a href="#scp" class="smooth-scroll">scp</a></li>
+        <li><a href="#curl" class="smooth-scroll">curl</a></li>
+        <li><a href="#diff" class="smooth-scroll">diff</a></li>
+        <li><a href="#head" class="smooth-scroll">head</a></li>
+        <li><a href="#tail" class="smooth-scroll">tail</a></li>
+    </ul>
+</nav>
+
+<!-- Sections for individual commands -->
+
+<section id="top" class="fade-in">
+    <h2>top</h2>
+    <p>The <strong>top</strong> command displays real-time system processes, CPU, and memory usage.</p>
+    <pre>top</pre>
+    <p>Screenshot:</p>
+    <img src="top.png" alt="Top command output">
+</section>
+
+<section id="kill" class="fade-in">
+    <h2>kill</h2>
+    <p>The <strong>kill</strong> command sends signals to terminate processes manually.</p>
+    <pre>kill -9 [PID]</pre>
+    <p>Screenshot:</p>
+    <img src="kill example.png" alt="Kill command example">
+</section>
+
+<section id="ifconfig" class="fade-in">
+    <h2>ifconfig</h2>
+    <p>The <strong>ifconfig</strong> command displays or configures network interfaces.</p>
+    <pre>ifconfig</pre>
+    <p>Screenshot:</p>
+    <img src="ifconfig example.png" alt="Ifconfig command output">
+</section>
+
+<section id="ping" class="fade-in">
+    <h2>ping</h2>
+    <p>The <strong>ping</strong> command tests the reachability of a host on a network by sending ICMP echo request packets and waiting for a reply.</p>
+    <pre>ping [hostname/IP]</pre>
+    <p>Screenshot:</p>
+    <img src="ping example.png" alt="Ping command output">
+</section>
+
+<section id="ssh" class="fade-in">
+    <h2>ssh</h2>
+    <p>The <strong>ssh</strong> command allows secure access to a remote system over an encrypted connection.</p>
+    <pre>ssh user@hostname</pre>
+    <p>Screenshot:</p>
+    <img src="ssh example.png" alt="SSH command output">
+</section>
+
+<section id="scp" class="fade-in">
+    <h2>scp</h2>
+    <p>The <strong>scp</strong> command securely transfers files between local and remote systems.</p>
+    <pre>scp source_file user@hostname:destination_path</pre>
+    <p>Screenshot:</p>
+    <img src="scp example.png" alt="SCP command output">
+</section>
+
+<section id="curl" class="fade-in">
+    <h2>curl</h2>
+    <p>The <strong>curl</strong> command transfers data from or to a server using protocols like HTTP, FTP, etc.</p>
+    <pre>curl [URL]</pre>
+    <p>Screenshot:</p>
+    <img src="curl example.png" alt="Curl command output">
+</section>
+
+<section id="diff" class="fade-in">
+    <h2>diff</h2>
+    <p>The <strong>diff</strong> command compares files line by line and shows the differences.</p>
+    <pre>diff file1 file2</pre>
+    <p>Screenshot:</p>
+    <img src="diff example.png" alt="Diff command output">
+</section>
+
+<section id="head" class="fade-in">
+    <h2>head</h2>
+    <p>The <strong>head</strong> command displays the first few lines of a file.</p>
+    <pre>head -n [number_of_lines] [file]</pre>
+    <p>Screenshot:</p>
+    <img src="head example.png" alt="Head command output">
+</section>
+
+<section id="tail" class="fade-in">
+    <h2>tail</h2>
+    <p>The <strong>tail</strong> command displays the last few lines of a file, with an option to keep the display updated as the file grows.</p>
+    <pre>tail -f [file]</pre>
+    <p>Screenshot:</p>
+    <img src="tail example.png" alt="Tail command output">
+</section>
+
+<footer class="fade-in">
+    <p>&copy; 2025 Linux Commands Guide | All rights reserved.</p>
+</footer>
+
+<script>
+    // Smooth scroll for links
+    document.querySelectorAll('.smooth-scroll').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Theme toggle functionality
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+    }
+</script>
+
+</body>
+</html>
